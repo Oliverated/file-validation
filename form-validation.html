@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body{
+        background: url(car!.jpg) center  no-repeat ;
+        background-size:auto ;
+
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        justify-items: center;
+        margin-top: 5%;
+    }
+
+    .welcome{
+        backdrop-filter: blur(20px);
+        background-color: #380031;
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        position: relative;
+        left: 15rem;
+        z-index: 1;
+        cursor: default;
+        color: #ff8800;
+        transition: 1000ms;
+        border: 3px groove #ff8800;
+    }
+
+    .welcome:hover{
+        background-color:#12ffff84;
+        color: #380031;
+        transition: 1500ms;
+        border: 3px groove #380031;
+        padding: 1.5%;
+    }
+
+    .welcome h3{
+        text-align: center;
+        padding-top: 2rem;
+        font-size: 50px;
+    }
+
+    form {
+        margin: auto;
+        text-align: center;
+        backdrop-filter: blur(30px);
+        border-radius: 50%;
+        width: 25rem;
+        height: 25rem;
+    }
+
+    form  div{
+        padding-top: 35%;
+    }
+
+    form input{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid #f5790d;
+        color: #9d4900;
+    }
+
+    ::placeholder{
+        color: #cb75246b;
+    }
+
+    p{
+        color: red;
+        font-size: 25px;
+    }
+
+    form button{
+        width: 5rem;
+        height: 2rem;
+        background-color: #d27000;
+        color: #380031;
+        transition: 1800ms;
+        cursor: pointer;
+    }
+
+    form button:hover{
+        width: 5rem;
+        height: 2rem;
+        background-color: #380031;
+        color: #d27000;
+    }
+
+    .sign{
+        backdrop-filter: blur(20px);
+        background-color:#e67b00;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        position: relative;
+        right: 16rem;
+        top: 19rem;
+        z-index: 1;
+        transition: 1000ms;
+        border: 3px groove #380031;
+    }
+
+    .sign:hover{
+        background-color: #2cfefe48;
+        transition: 1000ms;
+        border: 3px groove #ff8800;
+        padding: 1.5%;
+    }
+
+
+
+    .sign h3{
+        text-align: center;
+        padding-top: 1.7rem;       
+    }
+
+    a{
+        text-decoration: none;
+        color: #41003f ;
+        transition: 1000ms;
+    }
+    .sign:hover a{
+        color: #d27000;
+        transition: 1000ms;
+    }  
+
+
+</style>
+    <title>Document</title>
+</head>
+
+<body>
+
+<main>
+
+    <div class="welcome">
+        <h3>Welcome Back!</h3>
+    </div>
+
+    <form>
+        <div>
+        <input id="email" placeholder="Email" type="text">
+        <br> <br>
+        <input id="password" placeholder="Password" type="text">
+        <br> <br>
+        <input id="confirm-pass" placeholder="Confirm Password" type="text">
+        <br> <br>
+        <button id="login_btn">Login</button>
+        <p id="notice"></p>
+    </div>
+    </form>
+
+    <div class="sign">
+       <h3><a href="#">Sign Up</a></h3> 
+    </div>
+
+        
+</main>
+    <script>
+
+        let email_inp = document.getElementById('email')
+        let password_inp = document.getElementById('password')
+        let confirm_pass_inp = document.getElementById('confirm-pass')
+        let login_btn = document.getElementById('login_btn')
+        let valid_notice = document.getElementById('notice')
+
+        myPassword = 12345678
+        // confirm_pass_inp = `${password_inp.value}`
+        myEmail = 'victorlodoliver@gmail.com'
+
+
+
+
+        login_btn.addEventListener('click', function (e) {
+            e.preventDefault()
+            if(password_inp.value == ""){
+                valid_notice.innerHTML = 'please enter your password'
+            } else if (password_inp.value.length < 8) {
+                valid_notice.innerHTML = 'password too short'
+            } else if (password_inp.value != myPassword){
+                valid_notice.innerText = 'wrong password'
+            } if (confirm_pass_inp.value != password_inp.value){
+              valid_notice.innerHTML = 'password do not match'
+            } else if (confirm_pass_inp.value = password_inp.value){
+              valid_notice.innerHTML = 'login successful'
+              valid_notice.style.color = 'green'
+            }
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>
